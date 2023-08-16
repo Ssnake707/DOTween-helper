@@ -1,13 +1,19 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
 namespace DOTweenHelper.Runtime.Tweens
 {
-    public abstract class BaseTween : MonoBehaviour
+    [Serializable]
+    public abstract class BaseTween
     {
+        [HideInInspector] public string TypeTweenName;
         [SerializeField] private TweenSettings _tweenSettings;
         
         public AddTypeTween AddTypeTween => _tweenSettings.TweenAddType;
+
+        protected BaseTween(string typeTweenName) => 
+            TypeTweenName = typeTweenName;
 
         public Tween GetTween()
         {

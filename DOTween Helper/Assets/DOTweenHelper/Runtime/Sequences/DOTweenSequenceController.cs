@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using DOTweenHelper.Runtime.Tweens;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace DOTweenHelper.Runtime.Sequences
         [SerializeField] private bool _isPlayOnAwake;
         [SerializeField] private SequenceLoopsSettings _sequenceLoopsSettings;
         [SerializeField] private SequenceUpdateSettings _sequenceUpdateSettings;
-        [SerializeField] private BaseTween[] _tweens;
+        [SerializeReference] private List<BaseTween> _tweens = new List<BaseTween>();
         private Sequence _sequence = null;
 
         public bool IsPlaying => _sequence?.IsPlaying() ?? false;
@@ -31,10 +32,15 @@ namespace DOTweenHelper.Runtime.Sequences
                 Play();
         }
 
+        [ContextMenu("Play")]
         public void Play()
         {
-            if (_sequence == null) CreateSequence();
-            _sequence.Play();
+            if (_sequence == null)
+            {
+                CreateSequence();
+                return;
+            }
+            _sequence.Restart();
         }
 
         public void Pause()
@@ -49,8 +55,19 @@ namespace DOTweenHelper.Runtime.Sequences
             _sequence.Complete(true);
         }
 
+        public void AddTween(BaseTween baseTween) => 
+            _tweens.Add(baseTween);
+
+        [ContextMenu("Create sequence")]
         private void CreateSequence()
         {
+            if (_sequence != null)
+            {
+                _sequence.Complete(true);
+                _sequence.Kill(true);
+                _sequence = null;
+            }
+            
             _sequence = DOTween.Sequence();
             foreach (BaseTween tween in _tweens)
             {
