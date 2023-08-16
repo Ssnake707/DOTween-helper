@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Tweens
+namespace DOTweenHelper.Runtime.Tweens
 {
     public abstract class BaseTween : MonoBehaviour
     {

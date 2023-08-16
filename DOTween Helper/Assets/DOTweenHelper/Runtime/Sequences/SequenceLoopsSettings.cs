@@ -1,7 +1,7 @@
 using System;
 using DG.Tweening;
 
-namespace DOTweenHelper
+namespace DOTweenHelper.Runtime.Sequences
 {
     [Serializable]
     public class SequenceLoopsSettings

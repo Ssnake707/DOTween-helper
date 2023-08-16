@@ -1,4 +1,4 @@
-namespace Tweens
+namespace DOTweenHelper.Runtime.Tweens
 {
     public enum AddTypeTween
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace DOTweenHelper
+namespace DOTweenHelper.Runtime.Sequences
 {
     public interface IDOTweenAnimationController
     {

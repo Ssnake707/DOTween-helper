@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace DOTweenHelper.Runtime.Tweens.Transform
 {
-    public class TweenTransformMove : BaseTween
+    public class TweenTransformLocalMove : BaseTween
     {
         [SerializeField] private UnityEngine.Transform _target;
         [SerializeField] private Vector3 _to;
         [SerializeField] private float _duration;
         protected override Tween CreateTween() => 
-            _target.DOMove(_to, _duration);
+            _target.DOLocalMove(_to, _duration);
     }
 }

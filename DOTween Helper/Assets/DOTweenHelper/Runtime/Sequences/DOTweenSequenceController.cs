@@ -1,9 +1,9 @@
 using System;
 using DG.Tweening;
-using Tweens;
+using DOTweenHelper.Runtime.Tweens;
 using UnityEngine;
 
-namespace DOTweenHelper
+namespace DOTweenHelper.Runtime.Sequences
 {
     public class DOTweenSequenceController : MonoBehaviour, IDOTweenAnimationController
     {
