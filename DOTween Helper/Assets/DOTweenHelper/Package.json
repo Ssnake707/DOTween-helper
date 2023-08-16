@@ -1,9 +1,8 @@
 {
   "name": "com.fmore.dotweenhelper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "displayName": "DOTween helper",
   "description": "DOTween helper for creating sequence from monobehavior",
-  "hideInEditor": true,
   "dependencies": {
   },
   "author": {
