@@ -14,6 +14,7 @@ namespace DOTweenHelper.Editor
         {
             base.OnInspectorGUI();
             CreateButtonAddElementToList();
+            CreateDebugPanel();
         }
 
         private void CreateButtonAddElementToList()
@@ -27,7 +28,7 @@ namespace DOTweenHelper.Editor
                 menu.ShowAsContext();
             }
         }
-        
+
         private void AddMenuItem(GenericMenu menu, string menuPath, TypeTween typeTween)
         {
             menuPath = menuPath.Replace("_", " ");
@@ -37,10 +38,50 @@ namespace DOTweenHelper.Editor
             menu.AddItem(new GUIContent($"{root}/{menuPath}"), false, OnSelected, typeTween);
         }
 
-        private void OnSelected(object typeTween)
-        {
-            //_typeTween = (TypeTween)typeTween;
+        private void OnSelected(object typeTween) => 
             AddTween((TypeTween)typeTween);
+
+        private void CreateDebugPanel()
+        {
+            GUILayout.Space(10f);
+            GUILayout.BeginVertical("GroupBox");
+            GUILayout.Space(5f);
+            
+            CreateButtonPlay();
+            GUILayout.Space(5f);
+            CreateButtonCreateSequence();
+            GUILayout.Space(5f);
+            
+            GUILayout.EndVertical();
+        }
+
+        private void CreateButtonPlay()
+        {
+            GUI.enabled = Application.isPlaying;
+
+            GUIStyle guiStyle = new GUIStyle(GUI.skin.button);
+            guiStyle.fontSize = 15;
+            if (GUILayout.Button("Play", guiStyle))
+            {
+                DOTweenSequenceController tweenSequenceController = (DOTweenSequenceController)target;
+                tweenSequenceController.Play();
+            }
+            
+            GUI.enabled = true;
+        }
+
+        private void CreateButtonCreateSequence()
+        {
+            GUI.enabled = Application.isPlaying;
+            GUIStyle guiStyle = new GUIStyle(GUI.skin.button);
+            guiStyle.fontSize = 15;
+            if (GUILayout.Button("Regenerate sequence", guiStyle))
+            {
+                DOTweenSequenceController tweenSequenceController = (DOTweenSequenceController)target;
+                tweenSequenceController.RegenerateSequence();
+            }
+
+            GUI.enabled = true;
         }
 
         private void AddTween(TypeTween typeTween)
