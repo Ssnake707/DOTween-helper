@@ -7,10 +7,9 @@ using UnityEngine;
 
 namespace DOTweenHelper.Editor
 {
-    [UnityEditor.CustomEditor(typeof(DOTweenSequenceController))]
+    [CustomEditor(typeof(DOTweenSequenceController))]
     public class DOTweenSequenceControllerEditor : UnityEditor.Editor
     {
-        private TypeTween _typeTween;
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -19,60 +18,80 @@ namespace DOTweenHelper.Editor
 
         private void CreateButtonAddElementToList()
         {
-            _typeTween = (TypeTween)EditorGUILayout.EnumPopup("Tween type:", _typeTween);
-            if (GUILayout.Button("Add tween")) 
-                AddTween();
+            if (GUILayout.Button("Add tween"))
+            {
+                GenericMenu menu = new GenericMenu();
+                foreach (TypeTween typeTween in Enum.GetValues(typeof(TypeTween)))
+                    AddMenuItem(menu, typeTween.ToString(), typeTween);
+                
+                menu.ShowAsContext();
+            }
+        }
+        
+        private void AddMenuItem(GenericMenu menu, string menuPath, TypeTween typeTween)
+        {
+            menuPath = menuPath.Replace("_", " ");
+            int indexFirstSpace = menuPath.IndexOf(" ", StringComparison.Ordinal);
+            string root = menuPath.Substring(0, indexFirstSpace);
+            menuPath = menuPath.Remove(0, indexFirstSpace);
+            menu.AddItem(new GUIContent($"{root}/{menuPath}"), false, OnSelected, typeTween);
         }
 
-        private void AddTween()
+        private void OnSelected(object typeTween)
+        {
+            //_typeTween = (TypeTween)typeTween;
+            AddTween((TypeTween)typeTween);
+        }
+
+        private void AddTween(TypeTween typeTween)
         {
             serializedObject.Update();
             DOTweenSequenceController tweenSequenceController = (DOTweenSequenceController)target;
-            switch (_typeTween)
+            switch (typeTween)
             {
-                case TypeTween.TransformLocalMove:
+                case TypeTween.Transform_Local_Move:
                     tweenSequenceController.AddTween(new TweenTransformLocalMove("Transform local move"));
                     break;
-                case TypeTween.TransformMove:
+                case TypeTween.Transform_Move:
                     tweenSequenceController.AddTween(new TweenTransformMove("Transform move"));
                     break;
-                case TypeTween.TransformScale:
+                case TypeTween.Transform_Scale:
                     tweenSequenceController.AddTween(new TweenTransformScale("Transform scale"));
                     break;
-                case TypeTween.TransformJump:
+                case TypeTween.Transform_Jump:
                     tweenSequenceController.AddTween(new TweenTransformJump("Transform jump"));
                     break;
-                case TypeTween.TransformLocalJump:
+                case TypeTween.Transform_Local_Jump:
                     tweenSequenceController.AddTween(new TweenTransformLocalJump("Transform local jump"));
                     break;
-                case TypeTween.TransformRotate:
+                case TypeTween.Transform_Rotate:
                     tweenSequenceController.AddTween(new TweenTransformRotate("Transform rotate"));
                     break;
-                case TypeTween.TransformLocalRotate:
+                case TypeTween.Transform_Local_Rotate:
                     tweenSequenceController.AddTween(new TweenTransformLocalRotate("Transform local rotate"));
                     break;
-                case TypeTween.TransformRotateQuaternion:
+                case TypeTween.Transform_Rotate_Quaternion:
                     tweenSequenceController.AddTween(new TweenTransformRotateQuaternion("Transform rotate quaternion"));
                     break;
-                case TypeTween.TransformLocalRotateQuaternion:
+                case TypeTween.Transform_Local_Rotate_Quaternion:
                     tweenSequenceController.AddTween(new TweenTransformLocalRotateQuaternion("Transform local rotate quaternion"));
                     break;
-                case TypeTween.TransformPunchPosition:
+                case TypeTween.Transform_Punch_Position:
                     tweenSequenceController.AddTween(new TweenTransformPunchPosition("Transform punch position"));
                     break;
-                case TypeTween.TransformPunchRotation:
+                case TypeTween.Transform_Punch_Rotation:
                     tweenSequenceController.AddTween(new TweenTransformPunchRotation("Transform punch rotation"));
                     break;
-                case TypeTween.TransformPunchScale:
+                case TypeTween.Transform_Punch_Scale:
                     tweenSequenceController.AddTween(new TweenTransformPunchScale("Transform punch scale"));
                     break;
-                case TypeTween.TransformShakePosition:
+                case TypeTween.Transform_Shake_Position:
                     tweenSequenceController.AddTween(new TweenTransformShakePosition("Transform shake position"));
                     break;
-                case TypeTween.TransformShakeRotation:
+                case TypeTween.Transform_Shake_Rotation:
                     tweenSequenceController.AddTween(new TweenTransformShakeRotation("Transform shake rotation"));
                     break;
-                case TypeTween.TransformShakeScale:
+                case TypeTween.Transform_Shake_Scale:
                     tweenSequenceController.AddTween(new TweenTransformShakeScale("Transform shake scale"));
                     break;
             }
