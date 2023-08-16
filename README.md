@@ -1,3 +1,4 @@
+*[Latest release v1.1.0](https://github.com/Ssnake707/DOTween-helper/releases)*
 # DOTween-helper
 #### Инструмент который позволяет легко создавать и настраивать последовательности анимаций [DOTween](https://dotween.demigiant.com/) через editor
 
