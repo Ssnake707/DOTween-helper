@@ -1,6 +1,7 @@
 using System;
 using DOTweenHelper.Runtime.Sequences;
 using DOTweenHelper.Runtime.Tweens;
+using DOTweenHelper.Runtime.Tweens.TextMeshProTween;
 using DOTweenHelper.Runtime.Tweens.TransformTweens;
 using UnityEditor;
 using UnityEngine;
@@ -134,6 +135,9 @@ namespace DOTweenHelper.Editor
                     break;
                 case TypeTween.Transform_Shake_Scale:
                     tweenSequenceController.AddTween(new TweenTransformShakeScale("Transform shake scale"));
+                    break;
+                case TypeTween.TextMeshPro_Color:
+                    tweenSequenceController.AddTween(new TweenTextMeshProColor("TextMeshPro colo"));
                     break;
             }
             serializedObject.ApplyModifiedProperties();

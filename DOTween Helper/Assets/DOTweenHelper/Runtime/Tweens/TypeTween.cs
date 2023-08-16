@@ -16,6 +16,7 @@ namespace DOTweenHelper.Runtime.Tweens
         Transform_Punch_Scale = 11,
         Transform_Shake_Position = 12,
         Transform_Shake_Rotation = 13,
-        Transform_Shake_Scale = 14
+        Transform_Shake_Scale = 14,
+        TextMeshPro_Color = 15
     }
 }
