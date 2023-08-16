@@ -48,10 +48,10 @@ namespace DOTweenHelper.Runtime.Sequences
             _sequence.Pause();
         }
 
-        public void Complete()
+        public void Complete(bool withCollback)
         {
             if (_sequence == null) return;
-            _sequence.Complete(true);
+            _sequence.Complete(withCollback);
         }
 
         public void AddTween(BaseTween baseTween) => 
