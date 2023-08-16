@@ -32,7 +32,6 @@ namespace DOTweenHelper.Runtime.Sequences
                 Play();
         }
 
-        [ContextMenu("Play")]
         public void Play()
         {
             if (_sequence == null)
@@ -58,7 +57,8 @@ namespace DOTweenHelper.Runtime.Sequences
         public void AddTween(BaseTween baseTween) => 
             _tweens.Add(baseTween);
 
-        [ContextMenu("Create sequence")]
+        public void RegenerateSequence() => CreateSequence();
+
         private void CreateSequence()
         {
             if (_sequence != null)
