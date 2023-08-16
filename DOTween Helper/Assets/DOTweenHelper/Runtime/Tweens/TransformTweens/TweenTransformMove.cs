@@ -2,12 +2,12 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 
-namespace DOTweenHelper.Runtime.Tweens.Transform
+namespace DOTweenHelper.Runtime.Tweens.TransformTweens
 {
     [Serializable]
     public class TweenTransformMove : BaseTween
     {
-        [SerializeField] private UnityEngine.Transform _target;
+        [SerializeField] private Transform _target;
         [SerializeField] private Vector3 _to;
         [SerializeField] private float _duration;
 

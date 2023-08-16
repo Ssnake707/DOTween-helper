@@ -603,35 +603,47 @@ MonoBehaviour:
     UpdateType: 0
     IgnoreTimeScale: 0
   _tweens:
-  - rid: 9047375777892925444
-  - rid: 9047375777892925446
+  - rid: 9047375777892925447
+  - rid: 9047375777892925449
   references:
     version: 2
     RefIds:
-    - rid: 9047375777892925444
-      type: {class: TweenTransformScale, ns: DOTweenHelper.Runtime.Tweens.Transform,
+    - rid: 9047375777892925447
+      type: {class: TweenTransformShakeScale, ns: DOTweenHelper.Runtime.Tweens.TransformTweens,
         asm: com.fmore.dotweenhelper}
       data:
-        TypeTweenName: Transform scale
+        TypeTweenName: Transform shake scale
         _tweenSettings:
           TweenAddType: 0
           Ease: 1
           Delay: 0
         _target: {fileID: 839756134}
-        _to: {x: 2, y: 2, z: 2}
+        _useVectorStrength: 0
+        _strength: {x: 0, y: 0, z: 0}
+        _strengthFloat: 1
         _duration: 1
-    - rid: 9047375777892925446
-      type: {class: TweenTransformScale, ns: DOTweenHelper.Runtime.Tweens.Transform,
+        _vibrato: 10
+        _randomness: 90
+        _randomnessMode: 1
+        _fadeOut: 1
+    - rid: 9047375777892925449
+      type: {class: TweenTransformShakePosition, ns: DOTweenHelper.Runtime.Tweens.TransformTweens,
         asm: com.fmore.dotweenhelper}
       data:
-        TypeTweenName: Transform scale
+        TypeTweenName: Transform shake position
         _tweenSettings:
           TweenAddType: 0
-          Ease: 6
+          Ease: 1
           Delay: 0
         _target: {fileID: 839756134}
-        _to: {x: 1, y: 1, z: 1}
+        _useVectorStrength: 0
+        _strength: {x: 0, y: 0, z: 0}
+        _strengthFloat: 1
         _duration: 1
+        _vibrato: 10
+        _randomness: 90
+        _randomnessMode: 0
+        _fadeOut: 1
 --- !u!65 &839756131
 BoxCollider:
   m_ObjectHideFlags: 0
