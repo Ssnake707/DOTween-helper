@@ -137,7 +137,7 @@ namespace DOTweenHelper.Editor
                     tweenSequenceController.AddTween(new TweenTransformShakeScale("Transform shake scale"));
                     break;
                 case TypeTween.TextMeshPro_Color:
-                    tweenSequenceController.AddTween(new TweenTextMeshProColor("TextMeshPro colo"));
+                    tweenSequenceController.AddTween(new TweenTextMeshProColor("TextMeshPro color"));
                     break;
             }
             serializedObject.ApplyModifiedProperties();

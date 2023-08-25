@@ -15,6 +15,8 @@ namespace DOTweenHelper.Runtime.Sequences
         bool IsPlaying { get; }
         void Play();
         void Pause();
-        void Complete(bool withCollback);
+        void GoTo(float to, bool andPlay);
+        void Complete(bool withCallback);
+        void Restart();
     }
 }

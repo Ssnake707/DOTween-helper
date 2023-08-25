@@ -19,6 +19,7 @@ namespace DOTweenHelper.Runtime.Sequences
         
         [SerializeField] private GameObject _linkGameObject;
         [SerializeField] private bool _isPlayOnAwake;
+        [SerializeField] private bool _isAutoKill = false;
         [SerializeField] private SequenceLoopsSettings _sequenceLoopsSettings;
         [SerializeField] private SequenceUpdateSettings _sequenceUpdateSettings;
         [SerializeReference] private List<BaseTween> _tweens = new List<BaseTween>();
@@ -39,6 +40,18 @@ namespace DOTweenHelper.Runtime.Sequences
                 CreateSequence();
                 return;
             }
+
+            _sequence.Play();
+        }
+
+        public void Restart()
+        {
+            if (_sequence == null)
+            {
+                CreateSequence();
+                return;
+            }
+            
             _sequence.Restart();
         }
 
@@ -48,10 +61,13 @@ namespace DOTweenHelper.Runtime.Sequences
             _sequence.Pause();
         }
 
-        public void Complete(bool withCollback)
+        public void GoTo(float to, bool andPlay) => 
+            _sequence.Goto(to, andPlay);
+
+        public void Complete(bool withCallback)
         {
             if (_sequence == null) return;
-            _sequence.Complete(withCollback);
+            _sequence.Complete(withCallback);
         }
 
         public void AddTween(BaseTween baseTween) => 
@@ -88,7 +104,7 @@ namespace DOTweenHelper.Runtime.Sequences
         private void SetSettings()
         {
             _sequence.SetLink(_linkGameObject);
-            _sequence.SetAutoKill(false);
+            _sequence.SetAutoKill(_isAutoKill);
             _sequence.SetLoops(_sequenceLoopsSettings.CountLoops, _sequenceLoopsSettings.LoopType);
             _sequence.SetUpdate(_sequenceUpdateSettings.UpdateType, _sequenceUpdateSettings.IgnoreTimeScale);
         }
