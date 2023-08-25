@@ -388,6 +388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 633163127}
   - component: {fileID: 633163128}
+  - component: {fileID: 633163129}
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -424,68 +425,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _linkGameObject: {fileID: 839756129}
   _isPlayOnAwake: 1
+  _isAutoKill: 0
   _sequenceLoopsSettings:
     LoopType: 1
-    CountLoops: 1
+    CountLoops: -1
   _sequenceUpdateSettings:
     UpdateType: 0
     IgnoreTimeScale: 0
   _tweens:
-  - rid: 9047375777892925447
-  - rid: 9047375777892925449
-  - rid: 9047375790022590464
+  - rid: 9047375995118288896
+  - rid: 9047375995118288897
   references:
     version: 2
     RefIds:
-    - rid: 9047375777892925447
-      type: {class: TweenTransformShakeScale, ns: DOTweenHelper.Runtime.Tweens.TransformTweens,
+    - rid: 9047375995118288896
+      type: {class: TweenTransformScale, ns: DOTweenHelper.Runtime.Tweens.TransformTweens,
         asm: com.fmore.dotweenhelper}
       data:
-        TypeTweenName: Transform shake scale
-        _tweenSettings:
-          TweenAddType: 0
-          Ease: 1
-          Delay: 0
-        _target: {fileID: 633163127}
-        _useVectorStrength: 0
-        _strength: {x: 0, y: 0, z: 0}
-        _strengthFloat: 1
-        _duration: 1
-        _vibrato: 10
-        _randomness: 90
-        _randomnessMode: 1
-        _fadeOut: 1
-    - rid: 9047375777892925449
-      type: {class: TweenTransformShakePosition, ns: DOTweenHelper.Runtime.Tweens.TransformTweens,
-        asm: com.fmore.dotweenhelper}
-      data:
-        TypeTweenName: Transform shake position
+        TypeTweenName: Transform scale
         _tweenSettings:
           TweenAddType: 0
           Ease: 1
           Delay: 0
         _target: {fileID: 839756134}
-        _useVectorStrength: 0
-        _strength: {x: 0, y: 0, z: 0}
-        _strengthFloat: 1
-        _duration: 1
-        _vibrato: 10
-        _randomness: 90
-        _randomnessMode: 0
-        _fadeOut: 1
-    - rid: 9047375790022590464
-      type: {class: TweenTextMeshProColor, ns: DOTweenHelper.Runtime.Tweens.TextMeshProTween,
+        _to: {x: 2, y: 2, z: 2}
+        _duration: 2
+    - rid: 9047375995118288897
+      type: {class: TweenTransformScale, ns: DOTweenHelper.Runtime.Tweens.TransformTweens,
         asm: com.fmore.dotweenhelper}
       data:
-        TypeTweenName: TextMeshPro colo
+        TypeTweenName: Transform scale
         _tweenSettings:
-          TweenAddType: 1
+          TweenAddType: 0
           Ease: 1
           Delay: 0
-        _target: {fileID: 1909278686}
-        _startColor: {r: 1, g: 1, b: 1, a: 1}
-        _endColor: {r: 1, g: 0.15558341, b: 0, a: 1}
-        _duration: 1
+        _target: {fileID: 839756134}
+        _to: {x: 1, y: 1, z: 1}
+        _duration: 2
+--- !u!114 &633163129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633163126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94dd83d2f4696a45848cc1c126d7b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SequenceController: {fileID: 633163128}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
