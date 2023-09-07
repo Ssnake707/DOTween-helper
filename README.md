@@ -12,6 +12,15 @@ ___
 
 ## Как установить
 
+### Внимание! <br><br>
+Для успешной установки пакета необходимо, чтобы ***DOTween*** находился в папке по умолчанию ***Assets/Plugins/Demigiant/DOTween*** <br><br>
+Также необходимо создать ASMDEF файл сборки для ***DOTween***<br> 
+Для этого необходимо открыть ***DOTween Utility Panel*** и нажать на ***Create ASMDEF***
+
+![Create ASMDEF DOTween](https://github.com/Ssnake707/DOTween-helper/blob/main/Images/DOTween%20ASMDEF.jpg)
+
+### Установка пакета
+
 Link for add custom package - https://github.com/Ssnake707/DOTween-helper.git?path=/DOTween%20Helper/Assets/DOTweenHelper
 
 Используя **Package Manager** вставьте ссылку выше в **Add package from git URL...** <br><br>
