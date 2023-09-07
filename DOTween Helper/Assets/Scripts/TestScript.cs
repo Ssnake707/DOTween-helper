@@ -1,9 +1,18 @@
+using DG.Tweening;
 using DOTweenHelper.Runtime.Sequences;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestScript : MonoBehaviour
 {
     public DOTweenSequenceController SequenceController;
+
+    Image _target;
+    private void Awake()
+    {
+        
+        _target.DOFade(1f, 1f);
+    }
 
     [NaughtyAttributes.Button("Play")]
     public void Play() => 

@@ -1,7 +1,7 @@
 using System;
 using DOTweenHelper.Runtime.Sequences;
 using DOTweenHelper.Runtime.Tweens;
-using DOTweenHelper.Runtime.Tweens.TextMeshProTween;
+using DOTweenHelper.Runtime.Tweens.TextMeshProTweens;
 using DOTweenHelper.Runtime.Tweens.TransformTweens;
 using UnityEditor;
 using UnityEngine;

@@ -2,7 +2,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace DOTweenHelper.Runtime.Tweens.TextMeshProTween
+namespace DOTweenHelper.Runtime.Tweens.TextMeshProTweens
 {
     public class TweenTextMeshProColor : BaseTween
     {
