@@ -17,6 +17,7 @@ namespace DOTweenHelper.Runtime.Tweens
         Transform_Shake_Position = 12,
         Transform_Shake_Rotation = 13,
         Transform_Shake_Scale = 14,
-        TextMeshPro_Color = 15
+        TextMeshPro_Color = 15,
+        Image_Fade = 16
     }
 }

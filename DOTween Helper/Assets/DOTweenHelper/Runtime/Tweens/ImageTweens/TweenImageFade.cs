@@ -9,14 +9,13 @@ namespace DOTweenHelper.Runtime.Tweens.ImageTweens
     public class TweenImageFade : BaseTween
     {
         [SerializeField] private Image _target;
+        [SerializeField] private float _to;
         [SerializeField] private float _duration;
         public TweenImageFade(string typeTweenName) : base(typeTweenName)
         {
         }
 
-        protected override Tween CreateTween()
-        {
-            return null;
-        }
+        protected override Tween CreateTween() => 
+            _target.DOFade(_to, _duration);
     }
 }

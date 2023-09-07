@@ -1,6 +1,7 @@
 using System;
 using DOTweenHelper.Runtime.Sequences;
 using DOTweenHelper.Runtime.Tweens;
+using DOTweenHelper.Runtime.Tweens.ImageTweens;
 using DOTweenHelper.Runtime.Tweens.TextMeshProTweens;
 using DOTweenHelper.Runtime.Tweens.TransformTweens;
 using UnityEditor;
@@ -138,6 +139,9 @@ namespace DOTweenHelper.Editor
                     break;
                 case TypeTween.TextMeshPro_Color:
                     tweenSequenceController.AddTween(new TweenTextMeshProColor("TextMeshPro color"));
+                    break;
+                case TypeTween.Image_Fade:
+                    tweenSequenceController.AddTween(new TweenImageFade("Image fade"));
                     break;
             }
             serializedObject.ApplyModifiedProperties();

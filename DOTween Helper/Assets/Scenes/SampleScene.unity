@@ -433,35 +433,22 @@ MonoBehaviour:
     UpdateType: 0
     IgnoreTimeScale: 0
   _tweens:
-  - rid: 9047375995118288896
-  - rid: 9047375995118288897
+  - rid: 7357702192415375360
   references:
     version: 2
     RefIds:
-    - rid: 9047375995118288896
-      type: {class: TweenTransformScale, ns: DOTweenHelper.Runtime.Tweens.TransformTweens,
+    - rid: 7357702192415375360
+      type: {class: TweenImageFade, ns: DOTweenHelper.Runtime.Tweens.ImageTweens,
         asm: com.fmore.dotweenhelper}
       data:
-        TypeTweenName: Transform scale
+        TypeTweenName: Image fade
         _tweenSettings:
           TweenAddType: 0
           Ease: 1
           Delay: 0
-        _target: {fileID: 839756134}
-        _to: {x: 2, y: 2, z: 2}
-        _duration: 2
-    - rid: 9047375995118288897
-      type: {class: TweenTransformScale, ns: DOTweenHelper.Runtime.Tweens.TransformTweens,
-        asm: com.fmore.dotweenhelper}
-      data:
-        TypeTweenName: Transform scale
-        _tweenSettings:
-          TweenAddType: 0
-          Ease: 1
-          Delay: 0
-        _target: {fileID: 839756134}
-        _to: {x: 1, y: 1, z: 1}
-        _duration: 2
+        _target: {fileID: 747768117}
+        _to: 0
+        _duration: 1
 --- !u!114 &633163129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +462,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SequenceController: {fileID: 633163128}
+--- !u!1 &747768116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 747768119}
+  - component: {fileID: 747768118}
+  - component: {fileID: 747768117}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &747768117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747768116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &747768118
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747768116}
+  m_CullTransparentMesh: 1
+--- !u!224 &747768119
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747768116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 906445600}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +787,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1909278685}
+  - {fileID: 747768119}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
