@@ -1,3 +1,4 @@
+using DG.Tweening;
 using DOTweenHelper.Runtime.Sequences;
 using UnityEngine;
 
@@ -24,4 +25,8 @@ public class TestScript : MonoBehaviour
     [NaughtyAttributes.Button("Complete")]
     public void Complete() => 
         SequenceController.Complete(false);
+
+    [NaughtyAttributes.Button("Kill all")]
+    public void KillAll() => 
+        DOTween.KillAll();
 }

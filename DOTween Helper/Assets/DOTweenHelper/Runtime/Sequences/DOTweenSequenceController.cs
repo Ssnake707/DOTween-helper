@@ -73,7 +73,8 @@ namespace DOTweenHelper.Runtime.Sequences
         public void AddTween(BaseTween baseTween) => 
             _tweens.Add(baseTween);
 
-        public void RegenerateSequence() => CreateSequence();
+        public void RegenerateSequence() => 
+            CreateSequence();
 
         private void CreateSequence()
         {
@@ -112,7 +113,11 @@ namespace DOTweenHelper.Runtime.Sequences
         private void SetEvents()
         {
             _sequence.OnComplete(() => OnComplete?.Invoke());
-            _sequence.OnKill(() => OnKill?.Invoke());
+            _sequence.OnKill(() =>
+            {
+                _sequence = null;
+                OnKill?.Invoke();
+            });
             _sequence.OnPlay(() => OnPlay?.Invoke());
             _sequence.OnPause(() => OnPause?.Invoke());
             _sequence.OnRewind(() => OnRewind?.Invoke());
