@@ -6,26 +6,26 @@ using UnityEngine;
 
 namespace DOTweenHelper.Runtime.Sequences
 {
-    public class DOTweenSequenceController : MonoBehaviour, IDOTweenAnimationController
+    public class DOTweenSequenceController : BaseDOTweenSequecneController
     {
-        public event Action OnComplete;
-        public event Action OnKill;
-        public event Action OnPlay;
-        public event Action OnPause;
-        public event Action OnRewind;
-        public event Action OnStart;
-        public event Action OnStepComplete;
-        public event Action OnUpdate;
-        
         [SerializeField] private GameObject _linkGameObject;
         [SerializeField] private bool _isPlayOnAwake;
         [SerializeField] private bool _isAutoKill = false;
         [SerializeField] private SequenceLoopsSettings _sequenceLoopsSettings;
         [SerializeField] private SequenceUpdateSettings _sequenceUpdateSettings;
         [SerializeReference] private List<BaseTween> _tweens = new List<BaseTween>();
-        private Sequence _sequence = null;
 
-        public bool IsPlaying => _sequence?.IsPlaying() ?? false;
+        public override event Action OnComplete;
+        public override event Action OnKill;
+        public override event Action OnPlay;
+        public override event Action OnPause;
+        public override event Action OnRewind;
+        public override event Action OnStart;
+        public override event Action OnStepComplete;
+        public override event Action OnUpdate;
+        public override bool IsPlaying => _sequence?.IsPlaying() ?? false;
+        
+        private Sequence _sequence = null;
 
         private void Awake()
         {
@@ -33,7 +33,7 @@ namespace DOTweenHelper.Runtime.Sequences
                 Play();
         }
 
-        public void Play()
+        public override void Play()
         {
             if (_sequence == null)
             {
@@ -44,7 +44,7 @@ namespace DOTweenHelper.Runtime.Sequences
             _sequence.Play();
         }
 
-        public void Restart()
+        public override void Restart()
         {
             if (_sequence == null)
             {
@@ -55,16 +55,16 @@ namespace DOTweenHelper.Runtime.Sequences
             _sequence.Restart();
         }
 
-        public void Pause()
+        public override void Pause()
         {
             if (_sequence == null) return;
             _sequence.Pause();
         }
 
-        public void GoTo(float to, bool andPlay) => 
+        public override void GoTo(float to, bool andPlay) => 
             _sequence.Goto(to, andPlay);
 
-        public void Complete(bool withCallback)
+        public override void Complete(bool withCallback)
         {
             if (_sequence == null) return;
             _sequence.Complete(withCallback);
@@ -73,8 +73,11 @@ namespace DOTweenHelper.Runtime.Sequences
         public void AddTween(BaseTween baseTween) => 
             _tweens.Add(baseTween);
 
-        public void RegenerateSequence() => 
+        public void RegenerateSequence()
+        {
+            GoTo(0, false);
             CreateSequence();
+        }
 
         private void CreateSequence()
         {

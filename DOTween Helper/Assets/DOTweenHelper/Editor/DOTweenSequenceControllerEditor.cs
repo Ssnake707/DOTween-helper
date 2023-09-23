@@ -63,10 +63,10 @@ namespace DOTweenHelper.Editor
 
             GUIStyle guiStyle = new GUIStyle(GUI.skin.button);
             guiStyle.fontSize = 15;
-            if (GUILayout.Button("Play", guiStyle))
+            if (GUILayout.Button("Restart", guiStyle))
             {
                 DOTweenSequenceController tweenSequenceController = (DOTweenSequenceController)target;
-                tweenSequenceController.Play();
+                tweenSequenceController.Restart();
             }
             
             GUI.enabled = true;

@@ -32,7 +32,9 @@ Link for add custom package - https://github.com/Ssnake707/DOTween-helper.git?pa
 
 ## Как использовать
 
-Добавьте компонент **DOTween Sequence Controller** к **GameObject**
+Добавьте компонент **DOTween Sequence Controller** к **GameObject** <br><br>
+**DOTween Sequence Controller** реализует базовый абстрактный класс **BaseDOTweenSequecneController**, который можно использовать в собственных классах и иметь возможность назначать в редакторе <br>
+
 
 
 ![DOTween sequence controller](https://github.com/Ssnake707/DOTween-helper/blob/main/Images/DOTween%20sequence%20controller.jpg)
@@ -64,9 +66,9 @@ Link for add custom package - https://github.com/Ssnake707/DOTween-helper.git?pa
 
 ![Example tween](https://github.com/Ssnake707/DOTween-helper/blob/main/Images/Example%20tween1.jpg)
 
-Кнопки **Play** и **Regenerate sequence** работают только в **Play mode**
-- **Play** - Запускает анимацию
-- **Regenerate sequence** - Необходима для пересоздания всей sequence в случае если вы в **Play mode** меняли переменные или добавляли новые анимации
+Кнопки **Restart** и **Regenerate sequence** работают только в **Play mode**
+- **Restart** - Перезапускает анимацию
+- **Regenerate sequence** - Необходим для пересоздания всей sequence в случае если вы в **Play mode** меняли переменные или добавляли новые анимации. Работает только с зацикленными анимациями
 
 ___
 
